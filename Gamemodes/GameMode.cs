@@ -80,9 +80,9 @@ namespace Gamemodes
             int playerWins = 0;
             int playerLosses = 0;
             Console.WriteLine("Welcome to custom mode, please enter the number of players. Number must be 1 to 9.");
-            var playerEntry = Console.ReadLine();
             while (true)
             {
+                var playerEntry = Console.ReadLine();
                 if (Int32.TryParse(playerEntry, out playerCount))
                 {
                     if (playerCount < 1 || playerCount > 9)
@@ -90,14 +90,15 @@ namespace Gamemodes
                         Console.WriteLine("Invalid player amount!");
                         continue;
                     }
+                    break;
                 }
-                break;
+                Console.WriteLine("Invalid input! Try again!");
             }
 
             while (true)
             {
                 Console.WriteLine("Enter the amount of rounds'. Number must be 1 to 5.");
-                playerEntry = Console.ReadLine();
+                var playerEntry = Console.ReadLine();
                 if (Int32.TryParse(playerEntry, out roundCount))
                 {
                     if (roundCount < 1 || roundCount > 5)
@@ -107,6 +108,8 @@ namespace Gamemodes
                     }
                     break;
                 }
+
+                Console.WriteLine("Invalid input! Try again!");
             }
 
             for (int i = 1; i <= playerCount; i++)
